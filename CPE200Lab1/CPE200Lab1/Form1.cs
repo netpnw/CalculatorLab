@@ -136,5 +136,27 @@ namespace CPE200Lab1
         {
             
         }
-    }
+
+		double p1 = 0;
+		double p2 = 0;
+		double p3 = 0;
+		private void btnPercent_Click(object sender, EventArgs e)
+		{
+			p = double.Parse(lblDisplay.Text);
+			if(p1 == 0)
+			{
+				p = p / 100;
+			}
+			else
+			{
+				p = (p / 100) * p1;
+			}
+			if (n % 1 == 0)
+			{
+				countDot = 0;
+			}
+			else countDot = 1;
+			lblDisplay.Text = p.ToString();
+		}
+	}
 }

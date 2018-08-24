@@ -13,8 +13,10 @@ namespace CPE200Lab1
 		private bool isAllowBack;
 		private bool isAfterOperater;
 		private bool isAfterEqual;
+		private string firstOperand;
+		private string operate;
 
-		private string display = "0";
+		private string display = "0" ;
 
 		public string Display()
 		{
@@ -64,9 +66,148 @@ namespace CPE200Lab1
 					break;
 				case "%":
 					//your code here
+					
 					break;
 			}
 			return "E";
 		}
+
+		public void handleSign()
+		{
+			if (isAfterEqual)
+			{
+				resetAll();
+			}
+			// already contain negative sign
+			if (display.Length is 8)
+			{
+				return;
+			}
+			if (display[0] is '-')
+			{
+				display = display.Substring(1, display.Length - 1);
+			}
+			else
+			{
+				display = "-" + display;
+			}
+		}
+		string digit;
+		public void swit(string dig)
+		{
+			digit = dig;
+		}
+		public void Num()
+		{
+			if (isAfterEqual)
+			{
+				resetAll();
+			}
+			if (isAfterOperater)
+			{
+				display = "0";
+			}
+			if (display.Length is 8)
+			{
+				return;
+			}
+			isAllowBack = true;
+
+			if (display is "0")
+			{
+				display = "";
+			}
+
+			display += digit;
+
+			isAfterOperater = false;
+		}
+		public void switop(string op)
+		{
+			operate = op;
+		}
+		
+		public void Operlator()
+		{
+			if (isAfterOperater)
+			{
+				return;
+			}
+			
+			switch (operate)
+			{
+				case "+":
+				case "-":
+				case "X":
+				case "÷":
+					firstOperand = display;
+					isAfterOperater = true;
+					break;
+				case "%":
+					// your code here
+					break;
+			}
+			isAllowBack = false;
+		}
+		public void Dot()
+		{
+			if (isAfterEqual)
+			{
+				resetAll();
+			}
+			if (display.Length is 8)
+			{
+				return;
+			}
+			if (!hasDot)
+			{
+				display += ".";
+				hasDot = true;
+			}
+		}
+		public void Back()
+		{
+			if (isAfterEqual)
+			{
+				return;
+			}
+			if (!isAllowBack)
+			{
+				return;
+			}
+			if (display != "0")
+			{
+				string current = display;
+				char rightMost = current[current.Length - 1];
+				if (rightMost is '.')
+				{
+					hasDot = false;
+				}
+				display = current.Substring(0, current.Length - 1);
+				if (display is "" || display is "-")
+				{
+					display = "0";
+				}
+			}
+		}
+		public void Equal()
+		{
+			string secondOperand = display;
+
+			string result = calculate(operate, firstOperand, secondOperand);
+			if (result is "E" || result.Length > 8)
+			{
+				display = "Error";
+			}
+			else
+			{
+				display = result;
+			}
+			isAfterEqual = true;
+		}
+
+		
+		
 	}
+
 }

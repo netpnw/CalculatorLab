@@ -37,8 +37,12 @@ namespace CPE200Lab1
             {
                 return;
             }
-            
-        }
+			string digit = ((Button)sender).Text;
+			engine.swit(((Button)sender).Text);
+
+
+
+		}
 
         private void btnUnaryOperator_Click(object sender, EventArgs e)
         {

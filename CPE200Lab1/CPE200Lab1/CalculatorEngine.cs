@@ -35,6 +35,11 @@ namespace CPE200Lab1
 		{
 			memory = 0;
 		}
+		string digit;
+		public void swit(string dig)
+		{
+			digit = dig;
+		}
 
 		public void numberclick()
 		{
@@ -51,7 +56,7 @@ namespace CPE200Lab1
 				return;
 			}
 			isAllowBack = true;
-			string digit = ((Button)sender).Text;
+			
 			if (display is "0")
 			{
 				display = "";

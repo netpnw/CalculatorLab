@@ -13,10 +13,11 @@ namespace CPE200Lab1
     public partial class Form1 : Form
     {
 
-        private double val = 0;
+        
         private double x;
+		private double z;
+		private int dot = 0;
 		
-
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace CPE200Lab1
 			{
 				lblDisplay.Text = "";
 			}
-			lblDisplay.Text = lblDisplay.Text + "4";
+			lblDisplay.Text = lblDisplay.Text + "4";	
 		}
 
         private void btn7_Click(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace CPE200Lab1
 
         private void btn1_Click(object sender, EventArgs e)
         {
+
 			if (lblDisplay.Text == "0")
 			{
 				lblDisplay.Text = "";
@@ -116,81 +118,95 @@ namespace CPE200Lab1
         private void btnClear_Click(object sender, EventArgs e)
         {
 			lblDisplay.Text = "0";
+			dot = 0;
         }
         private int num = 0;
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            if (num == 0) val = x - val;
-            else if (num == 1) val = x + val;
-            else if (num == 2) val = x * val;
-            else val = x / val;
+			double y = Double.Parse(lblDisplay.Text);
+			if (num == 0)
+			{
+				x = x - y;
+			}
+			else if(num == 1)
+			{
+				x = x + y;
+			}
+			else if(num == 2)
+			{
+				x = x * y;
+			}
+			else if(num == 3)
+			{
+				x = x / y;
+			}
 
 
-            lblDisplay.Text = val.ToString();
+            lblDisplay.Text = x.ToString();
             
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            x = val;
-            val = 0;
-         
-
+			x = Double.Parse(lblDisplay.Text);
+			lblDisplay.Text = "0";
+			num = 0;
+			dot = 0;
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-            x = val;
-            val = 0;
+			x = Double.Parse(lblDisplay.Text);
+			lblDisplay.Text = "0";
             num = 1;
+			dot = 0;
      
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-            x = val;
-            val = 0;
+			x = Double.Parse(lblDisplay.Text);
+			lblDisplay.Text = "0";
             num = 2;
+			dot = 0;
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-            x = val;
-            val = 0;
+			x = Double.Parse(lblDisplay.Text);
+			lblDisplay.Text = "0";
             num = 3;
+			dot = 0;
         }
 		
         private void btnDot_Click(object sender, EventArgs e)
         {
-			if (lblDisplay.Text.Contains("."))
-			{
-				return;
-			}
-			else
+			if (dot == 0)
 			{
 				lblDisplay.Text = lblDisplay.Text + ".";
+				dot = 1;
 			}
-        }
+			
+	    }
 		
 		
 		private void btnPercent_Click(object sender, EventArgs e)
 		{
-			x = double.Parse(lblDisplay.Text);
-			if (val == 0)
+			z = Double.Parse(lblDisplay.Text);
+			if (x == 0)
 			{
-				x = x / 100;
+				z = z / 100;
 			}
 			else
 			{
-				x = (x / 100) * val;
+				z = (z / 100) * x;
 			}
-			if (val % 1 == 0)
+			if (z % 1 == 0)
 			{
-				
+				dot = 0;
 			}
-			
-
-			lblDisplay.Text = x.ToString();
+			else dot = 1;
+			lblDisplay.Text = z.ToString();
 		}
 
 		private void btnBack_Click(object sender, EventArgs e)

@@ -13,9 +13,9 @@ namespace CPE200Lab1
     public partial class Form1 : Form
     {
 
-        private float val = 0;
-        private float x;
-        
+        private double val = 0;
+        private double x;
+		
 
         public Form1()
         {
@@ -86,6 +86,7 @@ namespace CPE200Lab1
         private void btnClear_Click(object sender, EventArgs e)
         {
             val = val * 0;
+			
             lblDisplay.Text = val.ToString();
 
         }
@@ -131,32 +132,52 @@ namespace CPE200Lab1
             val = 0;
             num = 3;
         }
-
+		
         private void btnDot_Click(object sender, EventArgs e)
         {
-            
-        }
-
-		double p1 = 0;
-		double p2 = 0;
-		double p3 = 0;
-		private void btnPercent_Click(object sender, EventArgs e)
-		{
-			p = double.Parse(lblDisplay.Text);
-			if(p1 == 0)
+			if (lblDisplay.Text.Contains("."))
 			{
-				p = p / 100;
+				return;
 			}
 			else
 			{
-				p = (p / 100) * p1;
+				lblDisplay.Text = lblDisplay.Text + ".";
 			}
-			if (n % 1 == 0)
+        }
+		
+		
+		private void btnPercent_Click(object sender, EventArgs e)
+		{
+			x = double.Parse(lblDisplay.Text);
+			if (val == 0)
 			{
-				countDot = 0;
+				x = x / 100;
 			}
-			else countDot = 1;
-			lblDisplay.Text = p.ToString();
+			else
+			{
+				x = (x / 100) * val;
+			}
+			if (val % 1 == 0)
+			{
+				
+			}
+			
+
+			lblDisplay.Text = x.ToString();
+		}
+
+		private void btnBack_Click(object sender, EventArgs e)
+		{
+			int a = lblDisplay.Text.Length;
+			if(lblDisplay.Text == "")
+			{
+				lblDisplay.Text = "";
+			}
+			else
+			{
+				lblDisplay.Text = lblDisplay.Text.Remove(a - 1);
+			}
+			
 		}
 	}
 }

@@ -40,13 +40,13 @@ namespace CPE200Lab1
             {
                 return;
             }
+
+            
+
 			string n = ((Button)sender).Text;
 			engine.handleNumber(n);
 
-            if (lblDisplay.Text is "0")
-            {
-                lblDisplay.Text = "";
-            }
+			lblDisplay.Text = engine.Display();
 		}
 
         private void btnBinaryOperator_Click(object sender, EventArgs e)
@@ -82,8 +82,9 @@ namespace CPE200Lab1
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            lblDisplay.Text = "0";
+            
 			engine.handleClear();
+			lblDisplay.Text = engine.Display();
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
@@ -105,6 +106,7 @@ namespace CPE200Lab1
                 return;
             }
 			engine.handleSign();
+			
         }
 
         private void btnDot_Click(object sender, EventArgs e)
@@ -114,6 +116,7 @@ namespace CPE200Lab1
                 return;
             }
 			engine.handleDot();
+			lblDisplay.Text = engine.Display();
         }
 
         private void btnSpace_Click(object sender, EventArgs e)
@@ -123,6 +126,7 @@ namespace CPE200Lab1
                 return;
             }
 			engine.handleSpace();
+			lblDisplay.Text = engine.Display();
         }
     }
 }

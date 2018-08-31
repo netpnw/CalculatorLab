@@ -22,7 +22,10 @@ namespace CPE200Lab1
 
 		public void handleNumber(string n)
 		{
-
+			if (display is "0")
+			{
+				display = "";
+			}
 			if (!isNumberPart)
 			{
 				isNumberPart = true;
@@ -39,7 +42,7 @@ namespace CPE200Lab1
 			isContainDot = false;
 			string current = display;
 
-//			if (current[current.Length - 1] != ' ' || isOperator(current[current.Length - 2]))
+//		if (current[current.Length - 1] != ' ' || isOperator(current[current.Length - 2]))
 //			{
 //				display += " " + n + " ";
 //				isSpaceAllowed = false;
@@ -56,6 +59,7 @@ namespace CPE200Lab1
 
 		public void handleClear()
 		{
+			display = "0";
 			isContainDot = false;
 			isNumberPart = false;
 			isSpaceAllowed = false;

@@ -15,6 +15,12 @@ namespace CPE200Lab1
 		private string firstOperand;
 		private string operate;
 		private double memory;
+		private string display = "0";
+
+		public string Display()
+		{
+			return display;
+		}
 
 		public void resetALL()
 		{
@@ -23,6 +29,35 @@ namespace CPE200Lab1
 			isAfterOperater = false;
 			isAfterEqual = false;
 			firstOperand = null;
+		}
+
+		public void mainform()
+		{
+			memory = 0;
+		}
+
+		public void numberclick()
+		{
+			if (isAfterEqual)
+			{
+				resetAll();
+			}
+			if (isAfterOperater)
+			{
+				display = "0";
+			}
+			if (display.Length is 8)
+			{
+				return;
+			}
+			isAllowBack = true;
+			string digit = ((Button)sender).Text;
+			if (display is "0")
+			{
+				display = "";
+			}
+			display += digit;
+			isAfterOperater = false;
 		}
 
 		private bool isNumber(string str)

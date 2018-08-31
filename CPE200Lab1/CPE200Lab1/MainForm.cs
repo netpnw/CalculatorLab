@@ -17,7 +17,7 @@ namespace CPE200Lab1
 
         private void resetAll()
         {
-            lblDisplay.Text = "0";
+            lblDisplay.Text = engine.Display();
 			engine.resetALL();
         }
 
@@ -26,7 +26,7 @@ namespace CPE200Lab1
         public MainForm()
         {
             InitializeComponent();
-            memory = 0;
+			engine.mainform();
             engine = new CalculatorEngine();
             resetAll();
         }
@@ -37,26 +37,7 @@ namespace CPE200Lab1
             {
                 return;
             }
-            if (isAfterEqual)
-            {
-                resetAll();
-            }
-            if (isAfterOperater)
-            {
-                lblDisplay.Text = "0";
-            }
-            if(lblDisplay.Text.Length is 8)
-            {
-                return;
-            }
-            isAllowBack = true;
-            string digit = ((Button)sender).Text;
-            if(lblDisplay.Text is "0")
-            {
-                lblDisplay.Text = "";
-            }
-            lblDisplay.Text += digit;
-            isAfterOperater = false;
+            
         }
 
         private void btnUnaryOperator_Click(object sender, EventArgs e)

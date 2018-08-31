@@ -79,34 +79,43 @@ namespace CPE200Lab1
 
         private void btn5_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 5;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "5";
+		}
 
         private void btn6_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 6;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "6";
+		}
 
         private void btn8_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 8;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "8";
+		}
 
         private void btn9_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 9;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "9";
+		}
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            val = val * 0;
-			
-            lblDisplay.Text = val.ToString();
-
+			lblDisplay.Text = "0";
         }
         private int num = 0;
         private void btnEqual_Click(object sender, EventArgs e)

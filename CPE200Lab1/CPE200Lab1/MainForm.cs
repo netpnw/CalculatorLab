@@ -12,23 +12,13 @@ namespace CPE200Lab1
 {
     public partial class MainForm : Form
     {
-        private bool hasDot;
-        private bool isAllowBack;
-        private bool isAfterOperater;
-        private bool isAfterEqual;
-        private string firstOperand;
-        private string operate;
-        private double memory;
+        
         private CalculatorEngine engine;
 
         private void resetAll()
         {
             lblDisplay.Text = "0";
-            isAllowBack = true;
-            hasDot = false;
-            isAfterOperater = false;
-            isAfterEqual = false;
-            firstOperand = null;
+			engine.resetALL();
         }
 
       

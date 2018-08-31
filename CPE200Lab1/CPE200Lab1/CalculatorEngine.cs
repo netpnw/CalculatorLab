@@ -8,7 +8,24 @@ namespace CPE200Lab1
 {
     class CalculatorEngine
     {
-        private bool isNumber(string str)
+		private bool hasDot;
+		private bool isAllowBack;
+		private bool isAfterOperater;
+		private bool isAfterEqual;
+		private string firstOperand;
+		private string operate;
+		private double memory;
+
+		public void resetALL()
+		{
+			isAllowBack = true;
+			hasDot = false;
+			isAfterOperater = false;
+			isAfterEqual = false;
+			firstOperand = null;
+		}
+
+		private bool isNumber(string str)
         {
             double retNum;
             return Double.TryParse(str, out retNum);

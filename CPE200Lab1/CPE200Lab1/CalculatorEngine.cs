@@ -41,12 +41,12 @@ namespace CPE200Lab1
 			isNumberPart = false;
 			isContainDot = false;
 			string current = display;
-
-//		if (current[current.Length - 1] != ' ' || isOperator(current[current.Length - 2]))
-//			{
-//				display += " " + n + " ";
-//				isSpaceAllowed = false;
-//			}
+			
+		if (current[current.Length - 1] != ' ' || isOperator(current[current.Length - 2].ToString()))
+			{
+				display += " " + n + " ";
+				isSpaceAllowed = false;
+			}
 		}
 		public void handleSpace()
 		{

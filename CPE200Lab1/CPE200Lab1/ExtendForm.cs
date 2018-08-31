@@ -57,6 +57,7 @@ namespace CPE200Lab1
             }
 			string n = ((Button)sender).Text;
 			engine.handleOperatorClick(n);
+			lblDisplay.Text = engine.Display();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

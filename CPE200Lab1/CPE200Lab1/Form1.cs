@@ -24,40 +24,58 @@ namespace CPE200Lab1
 
         private void btn4_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 4;
-            lblDisplay.Text = val.ToString();
-        }
+			if(lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "4";
+		}
 
         private void btn7_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 7;
-            lblDisplay.Text = val.ToString();
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "7";
 
-        }
+		}
 
         private void btn0_Click(object sender, EventArgs e)
         {
-            val = val * 10;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "0";
+		}
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 1;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "1";
+		}
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 2;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "2";
+		}
 
         private void btn3_Click(object sender, EventArgs e)
         {
-            val = val * 10 + 3;
-            lblDisplay.Text = val.ToString();
-        }
+			if (lblDisplay.Text == "0")
+			{
+				lblDisplay.Text = "";
+			}
+			lblDisplay.Text = lblDisplay.Text + "3";
+		}
 
         private void btn5_Click(object sender, EventArgs e)
         {

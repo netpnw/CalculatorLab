@@ -74,6 +74,7 @@ namespace CPE200Lab1
                 return;
             }
 			engine.Dot();
+			lblDisplay.Text = engine.Display();
         }
 
         private void btnSign_Click(object sender, EventArgs e)

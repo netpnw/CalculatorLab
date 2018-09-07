@@ -66,7 +66,8 @@ namespace CPE200Lab1
 					break;
 				case "%":
 					//your code here
-					
+					return ((Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand)) / 100).ToString();
+
 					break;
 			}
 			return "E";
@@ -145,6 +146,7 @@ namespace CPE200Lab1
 					break;
 				case "%":
 					// your code here
+					Convert.ToDouble(firstOperand);
 					break;
 			}
 			isAllowBack = false;
@@ -178,12 +180,14 @@ namespace CPE200Lab1
 			if (display != "0")
 			{
 				string current = display;
+
 				char rightMost = current[current.Length - 1];
 				if (rightMost is '.')
 				{
 					hasDot = false;
 				}
 				display = current.Substring(0, current.Length - 1);
+
 				if (display is "" || display is "-")
 				{
 					display = "0";

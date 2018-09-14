@@ -11,16 +11,19 @@ using System.Windows.Forms;
 namespace CPE200Lab1
 {
     public partial class ExtendForm : Form
-    {
-        
+    {       
         private CalculatorEngine engine;
-		
 		
         public ExtendForm()
         {
             InitializeComponent();
-            engine = new CalculatorEngine();
+            engine = Engine();
         }
+
+		protected virtual CalculatorEngine Engine()
+		{
+			return new CalculatorEngine();
+		}
 
         private bool isOperator(char ch)
         {
@@ -49,7 +52,7 @@ namespace CPE200Lab1
 			lblDisplay.Text = engine.Display();
 		}
 
-        private void btnBinaryOperator_Click(object sender, EventArgs e)
+        public virtual void btnBinaryOperator_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
             {

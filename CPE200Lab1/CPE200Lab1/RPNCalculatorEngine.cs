@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
-	class RPNCalculatorEngine : CalculatorEngine
+	public class RPNCalculatorEngine : CalculatorEngine
 	{
 		public override string Process(string str)
 		{
@@ -17,7 +17,6 @@ namespace CPE200Lab1
 			
 			for(int i = 0; i < parts.Length-1; i++)
 			{
-
 				if (isNumber(parts[i]))
 				{ 
 				rpn.Push(parts[i]);

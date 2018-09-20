@@ -110,7 +110,7 @@ namespace CPE200Lab1
                 return;
             }
 			engine.handleSign();
-			
+			lblDisplay.Text = engine.Display();
         }
 
         private void btnDot_Click(object sender, EventArgs e)

@@ -15,23 +15,37 @@ namespace CPE200Lab1
 			Stack<string> rpn = new Stack<string>();
 
 			string[] parts = str.Split(' ');
-			
-			for (int i = 0; i < parts.Length; i++)
+
+			if (parts.Length < 3)
 			{
-				if (isNumber(parts[i]))
+				return "E";
+			}
+			else if (isOperator(parts[1]) || isOperator(parts[0]))
+			{
+				return "E";
+			}
+			else if (isNumber(parts[0]) && isNumber(parts[1]) && isNumber(parts[2]))
+			{
+				return "E";
+			}else
+
+			{
+				for (int i = 0; i < parts.Length; i++)
 				{
-					rpn.Push(parts[i]);
+					if (isNumber(parts[i]))
+					{
+						rpn.Push(parts[i]);
+					}
+
+					if (isOperator(parts[i]))
+					{
+						second = rpn.Pop();
+						first = rpn.Pop();
+						four = calculate(parts[i], first, second, 4);
+						rpn.Push(four);
+					}
 				}
 
-				if (isOperator(parts[i]))
-				{
-					second = rpn.Pop();
-					first = rpn.Pop();
-					four = calculate(parts[i], first, second, 4);
-					rpn.Push(four);
-				}
-			}
-			
 				if (!(isNumber(parts[0]) && isOperator(parts[1]) && isNumber(parts[2])))
 				{
 					return rpn.Peek();
@@ -40,7 +54,7 @@ namespace CPE200Lab1
 				{
 					return "E";
 				}
-			
+			}
         }
     }
 }

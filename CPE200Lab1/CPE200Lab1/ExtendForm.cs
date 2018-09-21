@@ -125,6 +125,7 @@ namespace CPE200Lab1
                 return;
             }
             string current = lblDisplay.Text;
+			
             if (current is "0")
             {
                 lblDisplay.Text = "-";
@@ -133,7 +134,7 @@ namespace CPE200Lab1
                 lblDisplay.Text = current.Substring(0, current.Length - 1);
                 if (lblDisplay.Text is "")
                 {
-                    lblDisplay.Text = "0";
+                    lblDisplay.Text = "-";
                 }
             } else
             {

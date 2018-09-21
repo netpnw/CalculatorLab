@@ -32,13 +32,18 @@ namespace CPE200Lab1
             List<string> parts = str.Split(' ').ToList<string>();
             string result;
             //As long as we have more than one part
+			if(parts.Count == 1)
+			{
+				return "E";
+			}
             while(parts.Count > 1)
             {
                 //Check if the first three is ready for calcuation
                 if(!(isNumber(parts[0]) && isOperator(parts[1]) && isNumber(parts[2])))
                 {
                     return "E";
-                } else
+                }
+			 else
                 {
                     //Calculate the first three
                     result = calculate(parts[1], parts[0], parts[2], 4);
@@ -71,7 +76,7 @@ namespace CPE200Lab1
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         // trim the fractional part gracefully. =
-                        return result.ToString("N" + remainLength);
+                        return result.ToString();
                     }
                 case "1/x":
                     if(operand != "0")
@@ -91,7 +96,7 @@ namespace CPE200Lab1
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         // trim the fractional part gracefully. =
-                        return result.ToString("N" + remainLength);
+                        return result.ToString();
                     }
                     break;
             }
@@ -127,7 +132,7 @@ namespace CPE200Lab1
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         // trim the fractional part gracefully. =
-                        return result.ToString("N" + remainLength);
+                        return result.ToString();
                     }
                     break;
                 case "%":

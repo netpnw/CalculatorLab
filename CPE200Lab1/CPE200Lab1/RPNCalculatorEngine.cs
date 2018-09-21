@@ -8,35 +8,40 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
-        public new string Process(string str)
-        {
-            Stack<string> rpnStack = new Stack<string>();
-            List<string> parts = str.Split(' ').ToList<string>();
-            string result;
-            string firstOperand, secondOperand;
+		public new string Process(string str)
+		{
+			
+			string first, second, third, four;
+			Stack<string> rpn = new Stack<string>();
 
-            foreach (string token in parts)
-            {
-                if (isNumber(token))
-                {
-                    rpnStack.Push(token);
-                }
-                else if (isOperator(token))
-                {
-                    //FIXME, what if there is only one left in stack?
-                    secondOperand = rpnStack.Pop();
-                    firstOperand = rpnStack.Pop();
-                    result = calculate(token, firstOperand, secondOperand, 4);
-                    if (result is "E")
-                    {
-                        return result;
-                    }
-                    rpnStack.Push(result);
-                }
-            }
-            //FIXME, what if there is more than one, or zero, items in the stack?
-            result = rpnStack.Pop();
-            return result;
-        }
-    }
+			string[] parts = str.Split(' ');
+
+			for (int i = 0; i < parts.Length - 1; i++)
+			{
+				
+				if (isNumber(parts[i]))
+				{
+					rpn.Push(parts[i]);
+	
+				}
+				if (isOperator(parts[i]))
+				{
+					second = rpn.Pop();
+					first = rpn.Pop();
+					four = calculate(parts[i], first, second, 4);
+					rpn.Push(four);
+				}
+			}
+
+			if (!(isNumber(parts[0]) && isOperator(parts[1]) && isNumber(parts[2])))
+			{
+				return rpn.Peek();
+			}
+			else
+			{
+				return "E";
+			}
+
+		}
+	}
 }

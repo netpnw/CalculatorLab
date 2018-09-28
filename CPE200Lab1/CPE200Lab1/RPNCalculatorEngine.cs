@@ -6,72 +6,61 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
-<<<<<<<<< Temporary merge branch 1
+
     public class RPNCalculatorEngine : CalculatorEngine
     {
-		public new string Process(string str)
+		public override string Process(string str)
 		{
-			
+			if(str == ""||str == null)
+			{
+				return "E";
+			}
 			string first, second, four;
 			Stack<string> rpn = new Stack<string>();
 
 			string[] parts = str.Split(' ');
-			if (parts.Length < 3)
+			if((parts.Length == 1||parts.Length == 2)&&parts[0] != "0")
 			{
 				return "E";
 			}
-			else if (isOperator(parts[1]) || isOperator(parts[0]))
+			for (int i = 0; i < parts.Length; i++)
 			{
-				return "E";
-			}
-		//	else if (parts.Length == 4)
-			//{
-				//return "E";
-			//}
-			else
-
-			{
-				for (int i = 0; i < parts.Length; i++)
+				if (isNumber(parts[i]))
 				{
-					if (isNumber(parts[i]))
-					{
 						rpn.Push(parts[i]);
-
-					}
-					if (isOperator(parts[i]))
-					{
-						try
-						{
-							second = rpn.Pop();
-							first = rpn.Pop();
-							four = calculate(parts[i], first, second, 4);
-							rpn.Push(four);
-						}
-						catch (InvalidProgramException)
-						{
-							return "E";
-						}
-					}
 				}
-
-
-				if (!isNumber(parts[0]) && isNumber(parts[1]) && isOperator(parts[2]))
+				else if (isOperator(parts[i]))
+				{
+					try
+					{
+						second = rpn.Pop();
+						first = rpn.Pop();
+						four = calculate(parts[i], first, second, 4);
+					}
+					catch (Exception)
+					{
+						return "E";
+					}			
+						rpn.Push(four);	
+				}
+				else if(parts[i] == "++")
 				{
 					return "E";
 				}
+			}
+
+
+				if (rpn.Count == 1)
+				{
+						four = rpn.Pop();
+						return four;
+
+				}
 				else
 				{
-					if (!(isNumber(parts[0]) && isOperator(parts[1]) && isNumber(parts[2])))
-					{
-
-						return rpn.Peek();
-					}
-					else
-					{
-						return "E";
-					}
+					return "E";
 				}
 			}
 		}
 	}
-}
+

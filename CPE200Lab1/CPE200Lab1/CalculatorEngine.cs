@@ -26,13 +26,17 @@ namespace CPE200Lab1
             return false;
         }
 
-        public string Process(string str)
+        public virtual string Process(string str)
         {
             //Split input string to multiple parts by space
             List<string> parts = str.Split(' ').ToList<string>();
             string result;
-            //As long as we have more than one part
-			if(parts.Count == 1)
+			//As long as we have more than one part
+			if ((parts.Count == 2 || parts.Count == 1) && parts[0] != "0")
+			{
+				return "E";
+			}
+			if (parts.Count == 1)
 			{
 				return "E";
 			}
@@ -122,7 +126,8 @@ namespace CPE200Lab1
                         int remainLength;
 
                         result = (Convert.ToDouble(firstOperand) / Convert.ToDouble(secondOperand));
-                        // split between integer part and fractional part
+                        // split between integer part and fractional parti
+						
                         parts = result.ToString().Split('.');
                         // if integer part length is already break max output, return error
                         if (parts[0].Length > maxOutputSize)
@@ -131,9 +136,9 @@ namespace CPE200Lab1
                         }
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
-                        // trim the fractional part gracefully. =
-                        return result.ToString();
-                    }
+						// trim the fractional part gracefully. =
+						return result.ToString("0.####");
+					}
                     break;
                 case "%":
                     //your code here

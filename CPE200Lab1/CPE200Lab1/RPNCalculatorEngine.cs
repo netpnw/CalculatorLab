@@ -23,12 +23,12 @@ namespace CPE200Lab1
 			else if (isOperator(parts[1]) || isOperator(parts[0]))
 			{
 				return "E";
+			
 			}
-			else if (isNumber(parts[0]) && isNumber(parts[1]) && isNumber(parts[2]))
-			{
+			else if(parts.Length %2 == 0){
 				return "E";
-			}else
-
+			}
+			else
 			{
 				for (int i = 0; i < parts.Length; i++)
 				{
@@ -36,13 +36,26 @@ namespace CPE200Lab1
 					{
 						rpn.Push(parts[i]);
 					}
-
-					if (isOperator(parts[i]))
+					else if (isOperator(parts[i]))
 					{
-						second = rpn.Pop();
-						first = rpn.Pop();
-						four = calculate(parts[i], first, second, 4);
-						rpn.Push(four);
+						if (parts.Length > 1)
+						{
+							second = rpn.Pop();
+							first = rpn.Pop();
+							if (first == null || second == null)
+							{
+								return "E";
+							}
+							else
+							{
+								four = calculate(parts[i], first, second, 4);
+								rpn.Push(four);
+							}
+						}
+						else
+						{
+							return "E";
+						}
 					}
 				}
 
@@ -54,6 +67,7 @@ namespace CPE200Lab1
 				{
 					return "E";
 				}
+			
 			}
         }
     }

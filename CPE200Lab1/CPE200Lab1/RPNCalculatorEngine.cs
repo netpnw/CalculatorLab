@@ -25,9 +25,7 @@ namespace CPE200Lab1
 				return "E";
 			
 			}
-			else if(parts.Length %2 == 0){
-				return "E";
-			}
+			
 			else
 			{
 				for (int i = 0; i < parts.Length; i++)
@@ -40,8 +38,8 @@ namespace CPE200Lab1
 					{
 						if (parts.Length > 1)
 						{
-							second = rpn.Pop();
-							first = rpn.Pop();
+								second = rpn.Pop();
+								first = rpn.Pop();
 							if (first == null || second == null)
 							{
 								return "E";
@@ -59,7 +57,7 @@ namespace CPE200Lab1
 					}
 				}
 
-				if (!(isNumber(parts[0]) && isOperator(parts[1]) && isNumber(parts[2])))
+				if (rpn.Count == 1)
 				{
 					return rpn.Peek();
 				}

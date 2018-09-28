@@ -36,7 +36,7 @@ namespace CPE200Lab1
 					}
 					else if (isOperator(parts[i]))
 					{
-						if (parts.Length > 1)
+						if (rpn.Count >1)
 						{
 								second = rpn.Pop();
 								first = rpn.Pop();

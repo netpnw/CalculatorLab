@@ -23,9 +23,9 @@ namespace CPE200Lab1
 			{
 				return "E";
 			}
-//			else if (isOperator(parts[3]) || isOperator(parts[4]))
-	//		{
-		//		return "E";
+		//	else if (parts.Length == 4)
+			//{
+				//return "E";
 			//}
 			else
 

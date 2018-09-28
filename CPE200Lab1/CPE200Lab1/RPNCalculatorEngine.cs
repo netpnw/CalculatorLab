@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
+<<<<<<<<< Temporary merge branch 1
     public class RPNCalculatorEngine : CalculatorEngine
     {
 		public new string Process(string str)

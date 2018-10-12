@@ -12,16 +12,18 @@ namespace CPE200Lab1
 {
     public partial class MainForm : Form
     {
-        private bool hasDot;
+        protected bool hasDot;
         private bool isAllowBack;
         private bool isAfterOperater;
         private bool isAfterEqual;
         private string firstOperand;
         private string operate;
         private double memory;
-        private CalculatorEngine engine;
 
-        private void resetAll()
+		protected CalculatorEngine engine;
+		protected String oper;
+
+		private void resetAll()
         {
             lblDisplay.Text = "0";
             isAllowBack = true;
@@ -81,7 +83,7 @@ namespace CPE200Lab1
             }
             operate = ((Button)sender).Text;
             firstOperand = lblDisplay.Text;
-            string result = engine.unaryCalculate(operate, firstOperand);
+            string result = engine.calculate(operate, firstOperand);
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
